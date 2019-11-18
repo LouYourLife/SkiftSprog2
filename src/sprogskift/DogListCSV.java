@@ -21,12 +21,15 @@ public class DogListCSV implements DogListI {
 		File fh = new File(filename);
 		Scanner myScanner = new Scanner(fh);
 		myScanner.nextLine();
+                long startTime = System.currentTimeMillis();
 		while (myScanner.hasNextLine()) {
 			line = myScanner.nextLine();
 			String[] myArr = line.split(",");
 			Dog tmpDog = new Dog(Integer.parseInt(myArr[0]),myArr[1],myArr[2],myArr[3],myArr[4],myArr[5]);
 			dogList.add(tmpDog);
 		}
+                long stopTime = System.currentTimeMillis();
+                System.out.println("Tid: " + (stopTime - startTime));
 		return dogList;
 	}
 
